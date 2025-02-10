@@ -13,6 +13,7 @@ import { options } from './typeorm/entities/Options';
 import { survey } from './typeorm/entities/Survey';
 import { question_type } from './typeorm/entities/Type';
 import { TypesModule } from './types/types.module';
+import { SurveyModule } from './survey/survey.module';
 
 async function initializeDatabase() {
   const connection = await createConnection({
@@ -61,6 +62,7 @@ async function initializeDatabase() {
     }),
     UsersModule,
     TypesModule,
+    SurveyModule,
   ],
   controllers: [AppController],
   providers: [AppService],
