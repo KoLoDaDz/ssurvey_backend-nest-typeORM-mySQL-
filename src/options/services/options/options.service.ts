@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { find } from 'rxjs';
 import { optionsDto } from 'src/options/dtos/option.dto';
 import { options } from 'src/typeorm/entities/Options';
 import { Repository } from 'typeorm';
