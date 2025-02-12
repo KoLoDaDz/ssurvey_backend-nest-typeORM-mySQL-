@@ -9,5 +9,5 @@ export class answertext{
     answer_id:number
 
     @Column()
-    text:number
+    text:string
 }
