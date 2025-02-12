@@ -18,6 +18,7 @@ import { OptionsModule } from './options/options.module';
 import { AnswerModule } from './answer/answer.module';
 import { AnswerMultiModule } from './answer-multi/answer-multi.module';
 import { AnswerTextModule } from './answer-text/answer-text.module';
+import { AnswerOneModule } from './answer-one/answer-one.module';
 
 async function initializeDatabase() {
   const connection = await createConnection({
@@ -71,6 +72,7 @@ async function initializeDatabase() {
     AnswerModule,
     AnswerMultiModule,
     AnswerTextModule,
+    AnswerOneModule,
   ],
   controllers: [AppController],
   providers: [AppService],
