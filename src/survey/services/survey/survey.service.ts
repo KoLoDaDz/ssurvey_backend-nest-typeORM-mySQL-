@@ -17,4 +17,10 @@ export class SurveyService {
         });
         return this.surveyRepository.save(newSurvey);
     };
+    editSurvey(id:number,surveyData:surveyDto){
+        this.surveyRepository.update({id},{...surveyData});
+    };
+    deleteSurvey(id:number){
+        this.surveyRepository.delete({id});
+    };
 }
