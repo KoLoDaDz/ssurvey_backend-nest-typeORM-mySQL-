@@ -22,6 +22,6 @@ export class UsersService {
         this.userRepository.update({id},{...updateUserDetails});
     }
     deleteUser(id: number){
-        this.userRepository.delete({id})
+        this.userRepository.delete({id});
     }
 }

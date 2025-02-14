@@ -16,4 +16,10 @@ export class TypesService {
         })
         return this.typeRepository.save(newType);
     }
+    updateTypes(id:number,updateTypesDetails:createTypeDto){
+        this.typeRepository.update({id},{...updateTypesDetails});
+    }
+    deleteTypes(id:number){
+        this.typeRepository.delete({id});
+    }
 }
