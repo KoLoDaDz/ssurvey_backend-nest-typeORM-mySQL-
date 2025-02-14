@@ -18,4 +18,10 @@ export class UsersService {
         });
         this.userRepository.save(newAnswer);
     }
+    updateUser(id: number, updateUserDetails:createUserParams){
+        this.userRepository.update({id},{...updateUserDetails});
+    }
+    deleteUser(id: number){
+        this.userRepository.delete({id})
+    }
 }
