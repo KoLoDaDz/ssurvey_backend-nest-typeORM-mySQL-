@@ -16,4 +16,10 @@ export class OptionsService {
         });
         return this.optionsRepository.save(newOption);
     };
+    updateOptions(id:number,optionsData:optionsDto){
+        this.optionsRepository.update({id},{...optionsData});
+    };
+    deleteOptions(id:number){
+        this.optionsRepository.delete(id);
+    };
 }
