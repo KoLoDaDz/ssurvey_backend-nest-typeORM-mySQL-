@@ -15,5 +15,11 @@ export class AnswerService {
             ...createAnswerDetails
         })
         return this.answerRepository.save(newAnswer)
-    }
+    };
+    editAnswer(id:number,answerData:answerDto){
+        this.answerRepository.update({id},{...answerData});
+    };
+    deleteAnswer(id:number){
+        this.answerRepository.delete({id});
+    };
 }

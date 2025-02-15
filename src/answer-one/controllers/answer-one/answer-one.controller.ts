@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { answeroneDto } from 'src/answer-one/dtos/answerOne.dto';
 import { AnswerOneService } from 'src/answer-one/services/answer-one/answer-one.service';
 
@@ -15,4 +15,15 @@ export class AnswerOneController {
         const {...answeroneDto} = createAnsweroneDto;
         this.answerService.createAnswerOne(answeroneDto)
     }
+
+    @Put(':id')
+    updateSurvey(@Param('id',ParseIntPipe)id:number,@Body()updateSurveyDto:answeroneDto){
+        this.answerService.editAnswer(id,updateSurveyDto);
+    };
+
+    @Delete(':id')
+    deleteSurvey(@Param('id',ParseIntPipe)id:number){
+        this.answerService.deleteAnswer(id);
+    };
 }
+

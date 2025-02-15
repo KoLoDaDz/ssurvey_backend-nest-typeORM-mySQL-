@@ -16,4 +16,10 @@ export class AnswerTextService {
         });
         return this.answertextRepository.save(newAnswer);
     };
+    editAnswer(id:number,answerData:answertextDto){
+        this.answertextRepository.update({id},{...answerData});
+    };
+    deleteAnswer(id:number){
+        this.answertextRepository.delete({id});
+    };
 }

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { answermultiDto } from 'src/answer-multi/dtos/answer-multi.dto';
 import { AnswerMultiService } from 'src/answer-multi/services/answer-multi/answer-multi.service';
 
@@ -15,4 +15,13 @@ export class AnswerMultiController {
         const {...answermultiDto} = createAnswermultiDto;
         this.answermultiService.createAnswermulti(answermultiDto)
     }
+    @Put(':id')
+    updateSurvey(@Param('id',ParseIntPipe)id:number,@Body()updateSurveyDto:answermultiDto){
+        this.answermultiService.editAnswer(id,updateSurveyDto);
+    };
+
+    @Delete(':id')
+    deleteSurvey(@Param('id',ParseIntPipe)id:number){
+        this.answermultiService.deleteAnswer(id);
+    };
 }

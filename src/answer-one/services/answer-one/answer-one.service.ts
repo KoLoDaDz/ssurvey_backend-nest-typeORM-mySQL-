@@ -16,4 +16,10 @@ export class AnswerOneService {
         });
         return this.answeroneRepository.save(newAnswer);
     };
+    editAnswer(id:number,answerData:answeroneDto){
+        this.answeroneRepository.update({id},{...answerData});
+    };
+    deleteAnswer(id:number){
+        this.answeroneRepository.delete({id});
+    };
 }

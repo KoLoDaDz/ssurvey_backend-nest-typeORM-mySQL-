@@ -16,4 +16,10 @@ export class AnswerMultiService {
         });
         return this.answermultiRepository.save(newAnswer);
     };
+    editAnswer(id:number,answerData:answermultiDto){
+        this.answermultiRepository.update({id},{...answerData});
+    };
+    deleteAnswer(id:number){
+        this.answermultiRepository.delete({id});
+    };
 }
