@@ -11,6 +11,12 @@ export class UsersController {
         return Users;
     }
 
+    @Get(':uid')
+    async getUsersByUid(@Param('uid', ParseIntPipe) uid:number){
+        const UsersByUid = await this.userService.findUsersByUid(uid);
+        return UsersByUid;
+    }
+
     @Post()
     createUsers(@Body() createUserDto: createUserDto){
         this.userService.createUser(createUserDto);

@@ -11,6 +11,9 @@ export class UsersService {
     findUser(){
         return this.userRepository.find();
     }
+    findUsersByUid(uid:number){
+        return this.userRepository.findBy({uid});
+    }
     createUser(userDetails: createUserParams){
         const newAnswer = this.userRepository.create({
             ...userDetails,
