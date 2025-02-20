@@ -10,6 +10,9 @@ export class AnswerMultiService {
     findAnswermulti(){
         return this.answermultiRepository.find();
     };
+    findAnswerByAnswerId(answer_id:number){
+        return this.answermultiRepository.findBy({answer_id});
+    };
     createAnswermulti(createAnswermultiDetails:answermultiDto){
         const newAnswer = this.answermultiRepository.create({
             ...createAnswermultiDetails

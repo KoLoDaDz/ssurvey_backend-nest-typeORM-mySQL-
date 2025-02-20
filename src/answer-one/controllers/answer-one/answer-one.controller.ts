@@ -10,6 +10,13 @@ export class AnswerOneController {
         return this.answerService.findAnswerOne();
     }
 
+    @Get(':id')
+    async getAnswerBySurveyId(@Param('id',ParseIntPipe) id:number){
+        const answerBySurveyId = await this.answerService.findAnswerBySurveyId(id);
+        return answerBySurveyId;
+    };
+
+
     @Post()
     createAnswerOne(@Body() createAnsweroneDto: answeroneDto){
         const {...answeroneDto} = createAnsweroneDto;

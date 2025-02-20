@@ -10,6 +10,9 @@ export class AnswerOneService {
     findAnswerOne(){
         return this.answeroneRepository.find();
     };
+    findAnswerBySurveyId(option:number){
+        return this.answeroneRepository.findBy({option});
+    };
     createAnswerOne(createAsnwerOneDetails:answeroneDto){
         const newAnswer = this.answeroneRepository.create({
             ...createAsnwerOneDetails

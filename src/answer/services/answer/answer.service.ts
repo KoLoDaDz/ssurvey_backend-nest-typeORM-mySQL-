@@ -16,6 +16,9 @@ export class AnswerService {
         })
         return this.answerRepository.save(newAnswer)
     };
+    findAnswerBySurveyId(id:number){
+        return this.answerRepository.findBy({id});
+    };
     editAnswer(id:number,answerData:answerDto){
         this.answerRepository.update({id},{...answerData});
     };

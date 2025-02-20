@@ -10,6 +10,13 @@ export class AnswerMultiController {
         return this.answermultiService.findAnswermulti();
     }
 
+    @Get(':answer_id')
+    async getAnswerByAnswerId(@Param('answer_id',ParseIntPipe) answer_id:number){
+        const answerByAnswerId = await this.answermultiService.findAnswerByAnswerId(answer_id);
+        return answerByAnswerId;
+    };
+
+
     @Post()
     createAnswermulti(@Body() createAnswermultiDto:answermultiDto){
         const {...answermultiDto} = createAnswermultiDto;

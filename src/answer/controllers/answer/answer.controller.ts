@@ -8,13 +8,19 @@ export class AnswerController {
     @Get()
     getAnswer(){
         return this.answerService.findAnswer()
-    }
+    };
+
+    @Get(':id')
+    async getAnswerBySurveyId(@Param('id',ParseIntPipe) id:number){
+        const answerBySurveyId = await this.answerService.findAnswerBySurveyId(id);
+        return answerBySurveyId;
+    };
 
     @Post()
     createAnswer(@Body() createAnswerDto: answerDto){
         const {...answerDto} = createAnswerDto;
         this.answerService.createAnswer(answerDto);
-    }
+    };
 
     @Put(':id')
     updateSurvey(@Param('id',ParseIntPipe)id:number,@Body()updateSurveyDto:answerDto){
